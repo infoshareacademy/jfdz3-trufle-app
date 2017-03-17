@@ -1,0 +1,62 @@
+.app-footer {
+    text-align: center;
+    background-color: #1f2236 !important;
+    background-image: -webkit-linear-gradient(top,#1f2260 0,#1f2236 100%) !important;
+    background-image: -o-linear-gradient(top,#1f2260 0,#1f2236 100%) !important;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#1f2260),to(#1f2236)) !important;
+    background-image: linear-gradient(to bottom,#1f2260 0,#1f2236 100%) !important;
+    border-color: #1f2236;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 20px;
+}
+
+.app-footer h5 {
+    margin: 5px 5px 10px 5px;
+
+}
+
+#footer-logo {
+    max-height: 40px;
+}
+
+.app-footer ul{
+    list-style: none;
+    margin: 5px 0;
+    padding: 2px;
+}
+
+.app-footer ul li{
+    display: inline;
+    padding: 5px;
+    font-family: Georgia, sans-serif;
+}
+
+.app-footer ul li a{
+    text-decoration: none;
+    color: #337ab7;
+    font-family: Georgia, sans-serif;
+}
+.app-footer ul li a:hover {
+    text-decoration: none;
+    color: #eb9d1f;
+    font-family: Georgia, sans-serif;
+}
+
+.app-footer strong{
+    color: #337ab7;
+    font-family: Georgia, sans-serif;
+}
+
+.app-footer strong:hover{
+    color: #eb9d1f;
+    font-family: Georgia, sans-serif;
+}
+
+.app-footer small{
+    color: #337ab7;
+}
+
+.app-footer small:hover{
+    color: #eb9d1f;
+}
