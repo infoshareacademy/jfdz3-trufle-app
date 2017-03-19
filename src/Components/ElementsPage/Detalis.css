@@ -9,11 +9,24 @@ iframe{
 }
 .colorDetalis {
     background: #f0f0f0;
-    border-top: 4px solid #507299;
     border-bottom: 4px solid #507299;
     overflow-y: auto;
     -ms-overflow-y: auto;
     width: 100%;
     height: 240px;
     padding: 5px;
+    overflow-x: hidden;
+}
+.colorTitle{
+    background:#507299;
+}
+.colorTitle p{
+    font-size: 20px;
+    font-family: Georgia, sans-serif;
+    background:#507299;
+    color:#eb9d1f;
+    margin: 0;
+}
+.colorFunctions div {
+    background: #f0f0f0;
 }
