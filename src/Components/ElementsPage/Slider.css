@@ -1,0 +1,17 @@
+.buttonCarousel{
+    position: relative;
+}
+.buttonClick{
+    position: absolute ;
+    bottom: 200px;
+    z-index: 100;
+    left: 0;
+    right:50%;
+    width: 100%;
+
+}
+.buttonClick button{
+    display: block;
+    margin: 0 auto;
+}
+

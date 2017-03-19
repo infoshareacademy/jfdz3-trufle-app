@@ -17,7 +17,7 @@ class Menu extends React.Component{
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Nav>
-                    <NavItem eventKey={1} href="#" className='button_menu' >Functions</NavItem>
+                    <NavItem eventKey={1} href="#" className='button_menu'  >Functions</NavItem>
                     <NavItem eventKey={2} href="#" className='button_menu' >Team</NavItem>
                     <NavItem eventKey={3} href="#" className='button_menu' >Details</NavItem>
                     <NavItem eventKey={3} href="#" className='button_menu' >Newsletter</NavItem>
