@@ -1,6 +1,8 @@
 import React from 'react';
 import './Detalis.css';
-import {Row, Col} from 'react-bootstrap';
+import {Col, Image} from 'react-bootstrap';
+import details from'./images/Details1.png';
+import tram from'./images/tram_city.png';
 
 class Detalis extends React.Component{
     render() {
@@ -9,13 +11,17 @@ class Detalis extends React.Component{
            <div className="colorTitle"><p>Functions</p></div>
         <div className="colorFunctions">
             <row className="show-grid">
-                <Col md ={12} >
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Fusce lectus lacus, vestibulum non ligula a, elementum lobortis justo.
-                        Integer aliquet orci pharetra finibus tempor. Nunc vel est condimentum, maximus tellus ut, gravida tellus.
-                        Curabitur egestas mauris eu ex aliquet, iaculis posuere odio lobortis.
-                        Donec pulvinar orci ex, sit amet porttitor sapien cursus sed. Integer a pulvinar nulla.
-                        Suspendisse in enim purus.</p>
+                <Col md ={3} className="buttonDetails" id="keyOne">
+                    <div><p><Image src="/assets/thumbnail.png" responsive /></p></div>
+                </Col>
+                <Col md ={3} className="buttonDetails" id="keyTwo">
+                    <div> <p> <Image src="/assets/thumbnail.png" responsive /></p></div>
+                </Col>
+                <Col md ={3} className="buttonDetails" id="keyThree">
+                    <div> <p><Image src={details} responsive /></p></div>
+                </Col>
+                <Col md ={3}  className="buttonDetails" id="keyFour">
+                    <div> <p><Image src={tram} responsive /></p></div>
                 </Col>
             </row>
         </div>

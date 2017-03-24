@@ -13,7 +13,7 @@ import './Slider.css';
 
                                     <div className="buttonCarousel">
                                         <div className="buttonClick">
-                                            <Link to="http://localhost:3000/#/main-app"> <Button bsStyle="info" className="">Success</Button></Link>
+                                            <a src="http://localhost:3000/#/main-app"><Button bsStyle="info" className="">Success</Button></a>
                                         </div>
                                     <Carousel>
                                         <Carousel.Item>
