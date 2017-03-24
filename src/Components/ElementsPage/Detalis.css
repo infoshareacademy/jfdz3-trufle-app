@@ -39,8 +39,8 @@ iframe{
     border: 1px solid #989898;
 }
 .col-md-3{
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 #keyOne {
