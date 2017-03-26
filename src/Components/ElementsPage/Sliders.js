@@ -12,10 +12,7 @@ import './Slider.css';
                                 return (
 
                                     <div className="buttonCarousel">
-                                        <div className="buttonClick">
-                                            <a src="http://localhost:3000/#/main-app"><Button bsStyle="info" className="">Success</Button></a>
-                                        </div>
-                                    <Carousel>
+                                          <Carousel>
                                         <Carousel.Item>
                                             <img width={1350} height={400} alt="tramvaj" src={banner}/>
                                         </Carousel.Item>
