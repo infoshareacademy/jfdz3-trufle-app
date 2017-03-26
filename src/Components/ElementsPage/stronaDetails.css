@@ -1,0 +1,10 @@
+.colorDetalis {
+    background: #f0f0f0;
+    border-bottom: 4px solid #507299;
+    overflow-y: auto;
+    -ms-overflow-y: auto;
+    width: 100%;
+    height: 240px;
+    padding: 5px;
+    overflow-x: hidden;
+}
