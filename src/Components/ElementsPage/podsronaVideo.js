@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col} from 'react-bootstrap';
-import './stronaDetails.css';
+import './podstronaVideo.css';
 
 class stronaDetails extends React.Component{
     render() {

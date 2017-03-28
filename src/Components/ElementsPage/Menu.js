@@ -1,14 +1,15 @@
 
 import React from 'react';
 import './Menu.css';
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Navbar, Nav, NavItem,Grid} from 'react-bootstrap';
 import {Form, FormGroup, ControlLabel, FormControl, Button, Col} from 'react-bootstrap';
 import logo from './images/planeta.gif';
 
 class Menu extends React.Component{
     render(){
         return(
-            <Navbar>
+
+            <Navbar fluid>
                 <Col md={6} >
                 <Navbar.Header>
                     <Navbar.Brand>
@@ -20,7 +21,7 @@ class Menu extends React.Component{
                     <NavItem eventKey={1} href="#" className='button_menu'  >Functions</NavItem>
                     <NavItem eventKey={2} href="#" className='button_menu' >Team</NavItem>
                     <NavItem eventKey={3} href="#" className='button_menu' >Details</NavItem>
-                    <NavItem eventKey={3} href="#" className='button_menu' >Newsletter</NavItem>
+                    <NavItem eventKey={4} href="#" className='button_menu' >Newsletter</NavItem>
                 </Nav>
                </Col>
                 <Col md={6} className="form-menu">
@@ -43,6 +44,7 @@ class Menu extends React.Component{
         </Form>
         </Col>
     </Navbar>
+
 
 
         )
