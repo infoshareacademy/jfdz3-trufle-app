@@ -27,10 +27,6 @@ a.logo_name{
     font-size: 25px;
 }
 
-.container{
-    width: 100% !important;
-    margin: 0;
-}
 .navbar-default .navbar-nav>li>a {
     font-size: 20px;
     font-family: Georgia, sans-serif;
