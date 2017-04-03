@@ -78,15 +78,15 @@ recursive(paths.appBuild, (err, fileNames) => {
 // Print a detailed summary of build files.
 function printFileSizes(stats, previousSizeMap) {
   var assets = stats.toJson().assets
-    .filter(asset => /\.(js|css)$/.test(asset.name))
+    .filter(asset => /\.(js|css)$/.test(asset.stopDesc))
     .map(asset => {
-      var fileContents = fs.readFileSync(paths.appBuild + '/' + asset.name);
+      var fileContents = fs.readFileSync(paths.appBuild + '/' + asset.stopDesc);
       var size = gzipSize(fileContents);
-      var previousSize = previousSizeMap[removeFileNameHash(asset.name)];
+      var previousSize = previousSizeMap[removeFileNameHash(asset.stopDesc)];
       var difference = getDifferenceLabel(size, previousSize);
       return {
-        folder: path.join('build', path.dirname(asset.name)),
-        name: path.basename(asset.name),
+        folder: path.join('build', path.dirname(asset.stopDesc)),
+        name: path.basename(asset.stopDesc),
         size: size,
         sizeLabel: filesize(size) + (difference ? ' (' + difference + ')' : '')
       };
@@ -104,7 +104,7 @@ function printFileSizes(stats, previousSizeMap) {
     }
     console.log(
       '  ' + sizeLabel +
-      '  ' + chalk.dim(asset.folder + path.sep) + chalk.cyan(asset.name)
+      '  ' + chalk.dim(asset.folder + path.sep) + chalk.cyan(asset.stopDesc)
     );
   });
 }

@@ -61,6 +61,7 @@ class DateTimePicker extends React.Component {
 
     return (
       <div className="form-group">
+        <h3>Kiedy:</h3>
         <div>
           <DatetimeRangePicker
             timePicker
@@ -74,7 +75,9 @@ class DateTimePicker extends React.Component {
             singleDatePicker={true}
           >
             <div className="input-group">
-              <input type="text" className="form-control" value={label}/>
+              <input type="text" className="form-control" value={label} onChange={function () {
+                console.log('test');
+              }}/>
               <span className="input-group-btn">
                     <Button className="default date-range-toggle">
                       <i className="glyphicon glyphicon-calendar"/>

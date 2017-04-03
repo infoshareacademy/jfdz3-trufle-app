@@ -1,37 +1,48 @@
 import React from 'react';
-import {Button} from "react-bootstrap";
+import Select from 'react-select';
+import ztmStops from '../data/ztmStops.json';
 
-class RoutePicker extends React.Component{
-  constructor(props){
+const ztmBusStops = ztmStops.stops.map(function (item) {
+  return {
+    value: {Lat: item.stopLat, Lon: item.stopLon},
+    label: item.stopCode + ' ' + item.stopDesc
+  }
+});
+
+class RoutePicker extends React.Component {
+  constructor(props) {
     super(props);
-    this.tate = {
-
+    this.state = {
+      value: {},
+      label: 'wybierz przystanek',
+      clearable: false,
     }
   }
 
-  render(){
+  updateValue = (newValue) => {
+    const {getBusCoordinate} = this.props;
+    this.setState({
+      label: newValue.label,
+      value: newValue.value,
+    }, getBusCoordinate(newValue.value));
+  };
+
+  render() {
+    // const {value} = this.state;
+    // const {getBusCoordinate} = this.props;
+    // console.log(getBusCoordinate);
     const result = (
       <div>
-        <div className="input-group">
-          <input type="text" className="form-control" defaultValue="punkt startowy"/>
-          <span className="input-group-btn">
-                    <Button className="default date-range-toggle">
-                      <i className="glyphicon glyphicon-play"/>
-                    </Button>
-                </span>
-        </div>
-        <div className="input-group">
-          <input type="text" className="form-control" defaultValue="cel podróży"/>
-          <span className="input-group-btn">
-                    <Button className="default date-range-toggle">
-                      <i className="glyphicon glyphicon-map-marker"/>
-                    </Button>
-                </span>
-        </div>
+        <Select
+          name="form-field-name"
+          options={ztmBusStops}
+          value={this.state}
+          onChange={this.updateValue}
+          clearable={this.state.clearable}
+        />
       </div>
-    )
-    return result;
+    );
+    return result
   }
 }
-
 export default RoutePicker;
