@@ -1,11 +1,11 @@
 import React from 'react';
-import {Col} from 'react-bootstrap';
-import './podstronaVideo.css';
+import {Col, Grid, Row, Menu} from 'react-bootstrap';
+import './details.css';
 
 class stronaDetails extends React.Component{
     render() {
         return(
-            <Grid>
+            <Grid fluid>
                 <Row className="show-grid">
                     <Col className="App_nav" xs={12} md={12}>
                         <Menu />
@@ -34,7 +34,8 @@ class stronaDetails extends React.Component{
                             </Col>
                          </row>
                     </div>
-            </Grid>)}
+            </Grid>);
+    }
 }
 
 export default stronaDetails;
