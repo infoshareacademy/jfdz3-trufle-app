@@ -4,7 +4,7 @@ import ztmStops from '../data/ztmStops.json';
 
 const ztmBusStops = ztmStops.stops.map(function (item) {
   return {
-    value: {Lat: item.stopLat, Lon: item.stopLon},
+    value: {stopId: item.stopId, Lat: item.stopLat, Lon: item.stopLon},
     label: item.stopCode + ' ' + item.stopDesc
   }
 });
@@ -20,17 +20,26 @@ class RoutePicker extends React.Component {
   }
 
   updateValue = (newValue) => {
-    const {getBusCoordinate} = this.props;
+    const {getBusCoordinateStart, getBusCoordinateEnd} = this.props;
     this.setState({
       label: newValue.label,
       value: newValue.value,
-    }, getBusCoordinate(newValue.value));
+    });
+    console.log('newValue', newValue);
+    // console.log(typeof getBusCoordinateEnd, typeof getBusCoordinateStart);
+    if (typeof getBusCoordinateEnd === 'function') {
+      getBusCoordinateEnd(newValue.value);
+    }
+    if (typeof getBusCoordinateStart === 'function') {
+      getBusCoordinateStart(newValue.value);
+    }
   };
 
   render() {
     // const {value} = this.state;
     // const {getBusCoordinate} = this.props;
     // console.log(getBusCoordinate);
+    // console.log('ztmBusStops', ztmStops.stops);
     const result = (
       <div>
         <Select

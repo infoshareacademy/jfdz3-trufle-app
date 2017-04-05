@@ -14,8 +14,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      origin: new global.google.maps.LatLng(54.391313, 18.577561),
-      destination: new global.google.maps.LatLng(54.378508, 18.600382),
+      origin: new global.google.maps.LatLng(54.403542, 18.569694),
+      destination: new global.google.maps.LatLng(54.352028, 18.646629),
       directions: null,
     };
   };
@@ -45,12 +45,10 @@ class Map extends React.Component {
       // }],
       travelMode: global.google.maps.TravelMode.DRIVING,
     }, (result, status) => {
-      // console.log(status, global.google.maps.DirectionsStatus);
       if (status === global.google.maps.DirectionsStatus.OK) {
         this.setState({
           directions: result,
         });
-        // console.log(result);
       } else {
         console.error(`error fetching directions ${result}`);
       }
@@ -58,28 +56,18 @@ class Map extends React.Component {
   };
 
   newLocalization = () => {
-    // const {origin, directions} = this.state;
-    // console.log(origin, directions);
-    const {busStops} = this.props;
-    this.setRoute(new global.google.maps.LatLng(busStops.Lat, busStops.Lon), new global.google.maps.LatLng(busStops.Lat, busStops.Lon)); //TODO - umożliwić wybranie dwóch róznych punktów
+    const {busStopsStart, busStopsEnd} = this.props;
+    this.setRoute(new global.google.maps.LatLng(busStopsStart.Lat, busStopsStart.Lon),
+      new global.google.maps.LatLng(busStopsEnd.Lat, busStopsEnd.Lon));
   };
-  // newLocalization2 = () => {
-  //   // const {origin, directions} = this.state;
-  //   // console.log(origin, directions);
-  //   this.setRoute(new global.google.maps.LatLng(54.404790, 18.612910), new global.google.maps.LatLng(54.379249, 18.618954));
-  // };
 
   render() {
-    // const {origin, directions} = this.state;
-    // console.log('render ', origin, directions);
-    // console.log(global.google.maps.DirectionsService);
-    const {busStops} = this.props;
-    console.log('hahahah',busStops);
+    const {busStopsStart, busStopsEnd} = this.props;
+    console.log('MapStart: ', busStopsStart, '; MapEnd: ', busStopsEnd);
 
     return (
       <div>
-        <input type="button" onClick={this.newLocalization} value='Zatwierdź przystanki' />
-        {/*<div onClick={this.newLocalization2}>Mapa2</div>*/}
+        <input type="button" onClick={this.newLocalization} value='Zatwierdź przystanki'/>
         <DirectionsExampleGoogleMap
           containerElement={
             <div style={{height: `1000px`}}/>
@@ -89,6 +77,7 @@ class Map extends React.Component {
           }
           center={this.state.origin}
           directions={this.state.directions}
+          confirmRoute={this.newLocalization}
         />
       </div>
     );

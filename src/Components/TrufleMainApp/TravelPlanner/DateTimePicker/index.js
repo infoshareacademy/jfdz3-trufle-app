@@ -35,7 +35,7 @@ class DateTimePicker extends React.Component {
     const year = picker.startDate.year();
     const month = picker.startDate.month();
     const day = picker.startDate.date();
-    const pickedDateTime = (year+'-'+month+'-'+day+' '+hour+':'+minute);
+    const pickedDateTime = (year+'-'+(month+1)+'-'+day+' '+hour+':'+minute);
     console.log(pickedDateTime);
   }
 
