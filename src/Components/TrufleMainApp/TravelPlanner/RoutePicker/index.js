@@ -28,10 +28,10 @@ class RoutePicker extends React.Component {
     console.log('newValue', newValue);
     // console.log(typeof getBusCoordinateEnd, typeof getBusCoordinateStart);
     if (typeof getBusCoordinateEnd === 'function') {
-      getBusCoordinateEnd(newValue.value);
+      getBusCoordinateEnd(newValue);
     }
     if (typeof getBusCoordinateStart === 'function') {
-      getBusCoordinateStart(newValue.value);
+      getBusCoordinateStart(newValue);
     }
   };
 

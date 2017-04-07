@@ -61,7 +61,6 @@ class DateTimePicker extends React.Component {
 
     return (
       <div className="form-group">
-        <h3>Kiedy:</h3>
         <div>
           <DatetimeRangePicker
             timePicker

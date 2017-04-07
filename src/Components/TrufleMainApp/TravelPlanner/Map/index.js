@@ -21,7 +21,7 @@ class Map extends React.Component {
   };
 
   componentDidMount() {
-    this.setRoute();
+    // this.setRoute();
   }
 
   setRoute(origin, destination) {
@@ -67,10 +67,10 @@ class Map extends React.Component {
 
     return (
       <div>
-        <input type="button" onClick={this.newLocalization} value='Zatwierdź przystanki'/>
+        <input className="btn btn-success" type="button" onClick={this.newLocalization} value='Zatwierdź przystanki'/>
         <DirectionsExampleGoogleMap
           containerElement={
-            <div style={{height: `1000px`}}/>
+            <div style={{height: `900px`}}/>
           }
           mapElement={
             <div style={{height: `100%`}}/>
