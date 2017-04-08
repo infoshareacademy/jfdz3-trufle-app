@@ -4,10 +4,12 @@ import DateTimePicker from './DateTimePicker'
 import RoutePicker from './RoutePicker';
 import Map from './Map';
 // import axios from 'axios';
-// import rozklad2 from './data/rozklad2.json'
-import rozklad2 from './data/rozklad.json'
+// import rozklad from './data/rozklad.json'
+import rozklad from './data/rozklad.json'
+import ztmStopsWithRoute from './data/ztmStopsWithRoute.json';
+import ztmStops from './data/ztmStops.json';
 
-const rozkladLinia8 = rozklad2.stopTimes.map(function (item) {
+const rozkladJazdy = rozklad.stopTimes.map(function (item) {
   return {
     routeId: item.routeId,
     arrivalTime: item.arrivalTime,
@@ -52,7 +54,7 @@ class TravelPlanner extends React.Component {
 
   timeLineRender = (busStopId) => {
     // console.log(busStopId);
-    let timeLine = rozkladLinia8.filter(
+    let timeLine = rozkladJazdy.filter(
       item => item.stopId === busStopId
       // item => item.stopId === this.state.busStopId
     ).map(
@@ -73,13 +75,7 @@ class TravelPlanner extends React.Component {
       (a, b) => a.arrivalTime - b.arrivalTime
     ).map(
       (item, index) => (
-        <li
-          key={index}
-          className="list-group-item"
-        >
-          {item.formattedArrivalTime}
-          <span className="badge">Linia: {item.routeId}</span>
-        </li>
+        item
       )
     );
     this.setState({timeLine: timeLine})
@@ -87,8 +83,8 @@ class TravelPlanner extends React.Component {
 
   routeLineRender = (busStopId) => {
     let {timeLine} = this.state;
-    console.log(timeLine);
-    let routeLine = rozkladLinia8.filter(
+    console.log('routeLineRender log', timeLine);
+    let routeLine = rozkladJazdy.filter(
       item => item.stopId === 9999
       // item => item.stopId === this.state.busStopId
     ).map(item => {
@@ -104,15 +100,32 @@ class TravelPlanner extends React.Component {
           <h3 className="panel-title">{item}</h3>
         </div>
         <div className="panel-body">
-          12:30, 14:45....
+          <ul className="list-group">
+            {function () {
+              return timeLine.filter(element => element.routeId === item).map((elementmaped, indexmaped) =>
+                <span key={indexmaped}
+                      className="badge">{elementmaped.formattedArrivalTime}
+                </span>
+              )
+            }()}
+          </ul>
         </div>
-      </div>)
-    // console.log('Timelinew', timeLine);
+      </div>);
+    // console.log('routeLineRender', timeLine);
     this.setState({routeLine: routeLine})
   };
 
   render() {
-    const {busStopsStart, busStopsEnd, timeLine, routeLine} = this.state;
+    const {busStopsStart, busStopsEnd, routeLine} = this.state;
+    const ztmStopsWithRouteFiltered = ztmStopsWithRoute.stopsInTrip.filter(
+      item => item.tripId === 11 && item.routeId === 207)
+      .sort(
+        (a, b) => a.stopSequence - b.stopSequence
+      )
+      .map(item => item.stopId);
+    console.log('ztmStopsWithRoute', ztmStopsWithRouteFiltered);
+
+    console.log('ztmStops', ztmStops.stops.filter(item=>item.stopId === 9999)); // TODO - przefiltrować ztmStops.stops przez ztmStopsWithRouteFiltered
 
     const result = (
       <Grid fluid>
@@ -137,11 +150,13 @@ class TravelPlanner extends React.Component {
             </div>
             <div className="panel panel-primary">
               <div className="panel-heading">
-                <h3 className="panel-title">Rozkład:</h3>
+                <h3 className="panel-title">
+                  <input type="button" className="btn btn-info" value="Pokaż rozkład"
+                         onClick={this.routeLineRender}/>
+                </h3>
               </div>
               <div className="panel-body">
                 <ul className="list-group">
-                  {timeLine}
                   {routeLine}
                 </ul>
               </div>

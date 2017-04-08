@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b132c91-9cd5-4329-98b5-eb058b1da265" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/data/rozklad.json" />
+    <list default="true" id="4b132c91-9cd5-4329-98b5-eb058b1da265" name="Default" comment="Try to add waypoints.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/ElementsPage/Main.js" afterPath="$PROJECT_DIR$/src/Components/ElementsPage/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/DateTimePicker/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/DateTimePicker/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/RoutePicker/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/RoutePicker/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/data/ztmStopsWithRoute.json" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/data/ztmStopsWithRoute.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,15 +38,12 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+            <state relative-caret-position="850">
+              <caret line="134" column="45" lean-forward="true" selection-start-line="134" selection-start-column="45" selection-end-line="134" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1491595178691" expanded="true" signature="4261:4313" ph="..." />
-                <marker date="1491595178691" expanded="true" signature="4261:4334" ph="..." />
-                <marker date="1491595178691" expanded="true" signature="4261:4353" ph="..." />
-                <marker date="1491595178691" expanded="true" signature="4261:4500" ph="..." />
-                <marker date="1491595178691" expanded="true" signature="4261:4514" ph="..." />
+                <element signature="e#262#303#0" expanded="true" />
+                <marker date="1491649617931" expanded="true" signature="5113:5163" ph="..." />
               </folding>
             </state>
           </provider>
@@ -60,8 +52,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+            <state relative-caret-position="731">
+              <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -72,7 +64,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/DateTimePicker/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
+            <state relative-caret-position="1024">
               <caret line="63" column="13" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -84,8 +76,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/RoutePicker/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="714">
+              <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -220,8 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,6 +426,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,7 +569,9 @@
       <workItem from="1491415454601" duration="197000" />
       <workItem from="1491424381529" duration="2565000" />
       <workItem from="1491500219068" duration="8888000" />
-      <workItem from="1491582719110" duration="10103000" />
+      <workItem from="1491582719110" duration="12625000" />
+      <workItem from="1491597764203" duration="135000" />
+      <workItem from="1491638002924" duration="6195000" />
     </task>
     <task id="LOCAL-00002" summary="zmiany na stronie glownej">
       <created>1490383037739</created>
@@ -635,11 +629,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491416769801</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Test commit for Robert">
+      <created>1491595229158</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1491595229158</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125143000" />
+    <option name="totallyTimeSpent" value="133995000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -653,13 +654,14 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1709" height="1407" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19688809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19688809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49702382" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19100237" sideWeight="0.54481685" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19623233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288854" sideWeight="0.48214287" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18995291" sideWeight="0.45518318" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18995291" sideWeight="0.45518318" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -668,7 +670,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980174" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19623233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -705,7 +706,8 @@
     <MESSAGE value="Added basic Map with update state to change displaing route dinamicly" />
     <MESSAGE value="Add auto-select based on API data.&#10;TODO - add posibility to mark two poitns on the map" />
     <MESSAGE value="Merge LyczkoP branch - map with bus stops present on route map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge LyczkoP branch - map with bus stops present on route map" />
+    <MESSAGE value="Test commit for Robert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test commit for Robert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -958,14 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
@@ -991,9 +985,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/DateTimePicker/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
+        <state relative-caret-position="1024">
           <caret line="63" column="13" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1003,8 +1005,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/RoutePicker/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        <state relative-caret-position="714">
+          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1013,8 +1015,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+        <state relative-caret-position="731">
+          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1023,15 +1025,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+        <state relative-caret-position="850">
+          <caret line="134" column="45" lean-forward="true" selection-start-line="134" selection-start-column="45" selection-end-line="134" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1491595178691" expanded="true" signature="4261:4313" ph="..." />
-            <marker date="1491595178691" expanded="true" signature="4261:4334" ph="..." />
-            <marker date="1491595178691" expanded="true" signature="4261:4353" ph="..." />
-            <marker date="1491595178691" expanded="true" signature="4261:4500" ph="..." />
-            <marker date="1491595178691" expanded="true" signature="4261:4514" ph="..." />
+            <element signature="e#262#303#0" expanded="true" />
+            <marker date="1491649617931" expanded="true" signature="5113:5163" ph="..." />
           </folding>
         </state>
       </provider>
