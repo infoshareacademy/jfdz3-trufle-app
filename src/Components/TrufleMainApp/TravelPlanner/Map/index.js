@@ -24,7 +24,7 @@ class Map extends React.Component {
     // this.setRoute();
   }
 
-  setRoute(origin, destination) {
+  setRoute(origin, destination, przystankiZTrasy) {
     const DirectionsService = new global.google.maps.DirectionsService();
     if (origin && destination) {
       this.setState({
@@ -39,10 +39,7 @@ class Map extends React.Component {
     DirectionsService.route({
       origin: origin,
       destination: destination,
-      // waypoints: [{
-      //   location: new global.google.maps.LatLng(54.404790, 18.612910),
-      //   stopover: true
-      // }],
+      waypoints: przystankiZTrasy,
       travelMode: global.google.maps.TravelMode.DRIVING,
     }, (result, status) => {
       if (status === global.google.maps.DirectionsStatus.OK) {
@@ -56,14 +53,25 @@ class Map extends React.Component {
   };
 
   newLocalization = () => {
-    const {busStopsStart, busStopsEnd} = this.props;
-    this.setRoute(new global.google.maps.LatLng(busStopsStart.Lat, busStopsStart.Lon),
-      new global.google.maps.LatLng(busStopsEnd.Lat, busStopsEnd.Lon));
+    const {busStopsStart, busStopsEnd, przystankiZTrasy} = this.props;
+    if (przystankiZTrasy.length > 1){
+      this.setRoute(new global.google.maps.LatLng(przystankiZTrasy[0].stopLat, przystankiZTrasy[0].stopLon),
+        new global.google.maps.LatLng(przystankiZTrasy[przystankiZTrasy.length - 1].stopLat, przystankiZTrasy[przystankiZTrasy.length - 1].stopLon),
+        przystankiZTrasy.map(function (item) {
+        return {location: new global.google.maps.LatLng(item.stopLat, item.stopLon), stopover: true}
+      }));
+      console.log('bez slice', przystankiZTrasy, 'slice', przystankiZTrasy.slice(4, -4).map(function (item) {
+        return {location: new global.google.maps.LatLng(item.stopLat, item.stopLon), stopover: true}
+      }));
+    }else {
+      this.setRoute(new global.google.maps.LatLng(busStopsStart.Lat, busStopsStart.Lon),
+        new global.google.maps.LatLng(busStopsEnd.Lat, busStopsEnd.Lon));
+    }
   };
 
   render() {
-    const {busStopsStart, busStopsEnd} = this.props;
-    console.log('MapStart: ', busStopsStart, '; MapEnd: ', busStopsEnd);
+    const {busStopsStart, busStopsEnd, przystankiZTrasy} = this.props;
+    console.log('MapStart: ', busStopsStart, '; MapEnd: ', busStopsEnd, 'przystankiZTrasy', przystankiZTrasy);
 
     return (
       <div>

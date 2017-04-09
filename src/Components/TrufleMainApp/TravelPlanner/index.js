@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import {Grid, Row, Col} from "react-bootstrap";
-import DateTimePicker from './DateTimePicker'
-import RoutePicker from './RoutePicker';
-import Map from './Map';
-// import axios from 'axios';
-// import rozklad from './data/rozklad.json'
-import rozklad from './data/rozklad.json'
-import ztmStopsWithRoute from './data/ztmStopsWithRoute.json';
+import DateTimePicker from "./DateTimePicker";
+import RoutePicker from "./RoutePicker";
+import Map from "./Map";
+import rozklad from "./data/rozklad.json";
+import ztmStopsWithRoute from "./data/ztmStopsWithRoute.json";
 import ztmStops from './data/ztmStops.json';
+import FacebookLogin from 'react-facebook-login';
 
 const rozkladJazdy = rozklad.stopTimes.map(function (item) {
   return {
@@ -18,7 +17,17 @@ const rozkladJazdy = rozklad.stopTimes.map(function (item) {
     tripId: item.tripId
   }
 });
+let ztmStopsMaped = ztmStops.stops.map(function (item) {
+  return {
+    stopId: item.stopId,
+    stopDesc: item.stopDesc,
+    stopLat: item.stopLat,
+    stopLon: item.stopLon
+  }
+});
+let przystankiZTrasy = [];
 
+/********CLASS BEGIN************/
 class TravelPlanner extends React.Component {
   constructor(props) {
     super(props);
@@ -28,19 +37,11 @@ class TravelPlanner extends React.Component {
       busStopId: '',
       timeLine: '',
       routeLine: '',
+      przystankiZTrasyCoDrugi: '',
+      user: '',
+      userPicture: ''
     }
   }
-
-  // componentDidMount() {
-  //   axios.get('http://87.98.237.99:88/stopTimes?date=2017-04-30&routeId=10')
-  //     .then(response => {
-  //       this.setState({data: response});
-  //       console.log('rozkłąd jazdy: ', response);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
 
   getBusCoordinateStart = (busStopsStart) => {
     this.setState({busStopsStart: busStopsStart.value, busStopId: busStopsStart.value.stopId}, function () {
@@ -53,10 +54,9 @@ class TravelPlanner extends React.Component {
   };
 
   timeLineRender = (busStopId) => {
-    // console.log(busStopId);
+    console.log('busstopid from timeLineRender', busStopId);
     let timeLine = rozkladJazdy.filter(
       item => item.stopId === busStopId
-      // item => item.stopId === this.state.busStopId
     ).map(
       item => {
         const arrivalTime = new Date(item.arrivalTime);
@@ -82,11 +82,12 @@ class TravelPlanner extends React.Component {
   };
 
   routeLineRender = (busStopId) => {
+    if (isNaN(busStopId)) {
+      busStopId = this.state.busStopId;
+    }
     let {timeLine} = this.state;
-    console.log('routeLineRender log', timeLine);
     let routeLine = rozkladJazdy.filter(
-      item => item.stopId === 9999
-      // item => item.stopId === this.state.busStopId
+      item => item.stopId === busStopId
     ).map(item => {
       return item.routeId
     }).filter(
@@ -97,7 +98,9 @@ class TravelPlanner extends React.Component {
     routeLine = routeLine.map(item =>
       <div className="panel panel-primary">
         <div className="panel-heading">
-          <h3 className="panel-title">{item}</h3>
+          <h3 className="panel-title">{item} <input type="button" value="Pokaż trasę" className="btn btn-info"
+                                                    onClick={ () => this.showTripOnMap(busStopId, item)}
+          /></h3>
         </div>
         <div className="panel-body">
           <ul className="list-group">
@@ -111,61 +114,105 @@ class TravelPlanner extends React.Component {
           </ul>
         </div>
       </div>);
-    // console.log('routeLineRender', timeLine);
     this.setState({routeLine: routeLine})
   };
 
-  render() {
-    const {busStopsStart, busStopsEnd, routeLine} = this.state;
-    const ztmStopsWithRouteFiltered = ztmStopsWithRoute.stopsInTrip.filter(
-      item => item.tripId === 11 && item.routeId === 207)
+  showTripOnMap = (busStopId, timeLine) => {
+    const tripId = ztmStopsWithRoute.stopsInTrip.filter(item => item.stopId === busStopId && item.routeId === timeLine)[0].tripId;
+
+    const przystankiZTrasyId = ztmStopsWithRoute.stopsInTrip
+      .filter(item => item.tripId === tripId && item.routeId === timeLine)
       .sort(
         (a, b) => a.stopSequence - b.stopSequence
       )
       .map(item => item.stopId);
-    console.log('ztmStopsWithRoute', ztmStopsWithRouteFiltered);
 
-    console.log('ztmStops', ztmStops.stops.filter(item=>item.stopId === 9999)); // TODO - przefiltrować ztmStops.stops przez ztmStopsWithRouteFiltered
+    let testujemy = function () {
+      przystankiZTrasy = [];
+      for (let i = 0; i < przystankiZTrasyId.length; i++) {
+        let ztmStopsFromTrip = ztmStopsMaped.find(function (item) {
+          return item.stopId === przystankiZTrasyId[i]
+        });
+        przystankiZTrasy.push(ztmStopsFromTrip)
+      }
+    }();
+    this.setState({przystankiZTrasyCoDrugi: przystankiZTrasy.filter((element, index) => index % 2 === 0)})
+  };
+
+  /********FACEBOOK RESPONSE************/
+  responseFacebook = (response) => {
+    console.log(response);
+    this.setState({user: response, userPicture: response.picture.data.url})
+  };
+
+  render() {
+    const {busStopsStart, busStopsEnd, routeLine, przystankiZTrasyCoDrugi, user, userPicture} = this.state;
+    console.log('przystankiZTrasyCoDrugi', przystankiZTrasyCoDrugi);
+    console.log('User: ', user.picture, 'userPicture: ', userPicture);
+    const userNotLogged = (
+      <div>
+        <FacebookLogin
+          appId="1679150892381438"
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={this.responseFacebook}
+          cssClass="my-facebook-button-class"
+          icon="fa-facebook"
+          reAuthenticate={true}
+        />
+
+      </div>
+    );
+    const userLogged = (
+      <Row>
+        <Col md={3}>
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">Użytkownik: {user.name}<img src={userPicture} alt="user_photo"/></h3>
+
+            </div>
+          </div>
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">Czas:</h3>
+            </div>
+            <div className="panel-body">
+              <DateTimePicker />
+            </div>
+          </div>
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">Podróż:</h3>
+            </div>
+            <div className="panel-body">
+              <RoutePicker getBusCoordinateStart={this.getBusCoordinateStart}/>
+              <RoutePicker getBusCoordinateEnd={this.getBusCoordinateEnd}/>
+            </div>
+          </div>
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">
+                <input type="button" className="btn btn-info" value="Pokaż rozkład"
+                       onClick={this.routeLineRender}/>
+              </h3>
+            </div>
+            <div className="panel-body">
+              <ul className="list-group">
+                {routeLine}
+              </ul>
+            </div>
+          </div>
+        </Col>
+        <Col md={9}>
+          <Map busStopsStart={busStopsStart} busStopsEnd={busStopsEnd} przystankiZTrasy={przystankiZTrasyCoDrugi}/>
+        </Col>
+      </Row>
+    );
+    const dopokazania = user > '' ? userLogged : userNotLogged;
 
     const result = (
       <Grid fluid>
-        <Row>
-          <Col md={3}>
-            <div className="panel panel-primary">
-              <div className="panel-heading">
-                <h3 className="panel-title">Czas:</h3>
-              </div>
-              <div className="panel-body">
-                <DateTimePicker />
-              </div>
-            </div>
-            <div className="panel panel-primary">
-              <div className="panel-heading">
-                <h3 className="panel-title">Podróż:</h3>
-              </div>
-              <div className="panel-body">
-                <RoutePicker getBusCoordinateStart={this.getBusCoordinateStart}/>
-                <RoutePicker getBusCoordinateEnd={this.getBusCoordinateEnd}/>
-              </div>
-            </div>
-            <div className="panel panel-primary">
-              <div className="panel-heading">
-                <h3 className="panel-title">
-                  <input type="button" className="btn btn-info" value="Pokaż rozkład"
-                         onClick={this.routeLineRender}/>
-                </h3>
-              </div>
-              <div className="panel-body">
-                <ul className="list-group">
-                  {routeLine}
-                </ul>
-              </div>
-            </div>
-          </Col>
-          <Col md={9}>
-            <Map busStopsStart={busStopsStart} busStopsEnd={busStopsEnd}/>
-          </Col>
-        </Row>
+        {dopokazania}
       </Grid>
     );
     return result;
