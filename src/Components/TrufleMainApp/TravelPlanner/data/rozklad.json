@@ -1,0 +1,32 @@
+{
+    "stopTimes": [
+        {
+            "agencyId": 2,
+            "arrivalTime": "1899-12-30T04:44:00",
+            "busServiceName": "002-01",
+            "date": "2017-04-30",
+            "departureTime": "1899-12-30T04:44:00",
+            "dropOffType": null,
+            "islupek": 760,
+            "nonpassenger": 1,
+            "noteDescription": "",
+            "noteSymbol": "",
+            "onDemand": 0,
+            "order": 0,
+            "pickupType": null,
+            "routeId": 2,
+            "shapeDistTraveled": null,
+            "stopHeadsign": "",
+            "stopId": 9999,
+            "stopSequence": 0,
+            "stopShortName": "9999",
+            "ticketZoneBorder": 0,
+            "timepoint": null,
+            "topologyVersionId": 329,
+            "tripId": 61,
+            "variantId": 119023,
+            "virtual": 0,
+            "wheelchairAccessible": 1
+        }
+    ]
+}

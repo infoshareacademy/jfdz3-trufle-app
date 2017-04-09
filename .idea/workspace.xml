@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b132c91-9cd5-4329-98b5-eb058b1da265" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jfdz3-trufle-app.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/data/rozklad.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/data/rozklad.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/Map/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js" afterPath="$PROJECT_DIR$/src/Components/TrufleMainApp/TravelPlanner/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -501,7 +495,7 @@
       <workItem from="1491696164343" duration="124000" />
       <workItem from="1491724192576" duration="7250000" />
       <workItem from="1491756151744" duration="172000" />
-      <workItem from="1491756346332" duration="170000" />
+      <workItem from="1491756346332" duration="514000" />
     </task>
     <task id="LOCAL-00002" summary="zmiany na stronie glownej">
       <created>1490383037739</created>
@@ -573,11 +567,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491649646888</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Test bez duzego pliku data">
+      <created>1491756538022</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1491756538022</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152538000" />
+    <option name="totallyTimeSpent" value="152882000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -654,7 +655,8 @@
     <MESSAGE value="Merge LyczkoP branch - map with bus stops present on route map" />
     <MESSAGE value="Test commit for Robert" />
     <MESSAGE value="Try to add waypoints." />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to add waypoints." />
+    <MESSAGE value="Test bez duzego pliku data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test bez duzego pliku data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
