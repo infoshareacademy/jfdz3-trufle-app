@@ -1,12 +1,12 @@
 import React from "react";
 import {Grid, Row, Col} from "react-bootstrap";
-import DateTimePicker from "./DateTimePicker";
 import RoutePicker from "./RoutePicker";
 import Map from "./Map";
 import rozklad from "./data/rozklad.json";
 import ztmStopsWithRoute from "./data/ztmStopsWithRoute.json";
-import ztmStops from './data/ztmStops.json';
-import FacebookLogin from 'react-facebook-login';
+import ztmStops from "./data/ztmStops.json";
+import FacebookLogin from "react-facebook-login";
+// import DateTimePicker from "./DateTimePicker";
 
 const rozkladJazdy = rozklad.stopTimes.map(function (item) {
   return {
@@ -50,7 +50,7 @@ class TravelPlanner extends React.Component {
     })
   };
   getBusCoordinateEnd = (busStopsEnd) => {
-    this.setState({busStopsEnd: busStopsEnd.value})
+    this.setState({busStopsEnd: busStopsEnd.value, przystankiZTrasyCoDrugi: []})
   };
 
   timeLineRender = (busStopId) => {
@@ -105,6 +105,7 @@ class TravelPlanner extends React.Component {
         <div className="panel-body">
           <ul className="list-group">
             {function () {
+              console.log(timeLine);
               return timeLine.filter(element => element.routeId === item).map((elementmaped, indexmaped) =>
                 <span key={indexmaped}
                       className="badge">{elementmaped.formattedArrivalTime}
@@ -135,7 +136,9 @@ class TravelPlanner extends React.Component {
         });
         przystankiZTrasy.push(ztmStopsFromTrip)
       }
-    }();
+      console.log(przystankiZTrasy);
+    };
+    testujemy();
     this.setState({przystankiZTrasyCoDrugi: przystankiZTrasy.filter((element, index) => index % 2 === 0)})
   };
 
@@ -147,20 +150,18 @@ class TravelPlanner extends React.Component {
 
   render() {
     const {busStopsStart, busStopsEnd, routeLine, przystankiZTrasyCoDrugi, user, userPicture} = this.state;
-    console.log('przystankiZTrasyCoDrugi', przystankiZTrasyCoDrugi);
-    console.log('User: ', user.picture, 'userPicture: ', userPicture);
     const userNotLogged = (
       <div>
-        <FacebookLogin
-          appId="1679150892381438"
-          autoLoad={false}
-          fields="name,email,picture"
-          callback={this.responseFacebook}
-          cssClass="my-facebook-button-class"
-          icon="fa-facebook"
-          reAuthenticate={true}
-        />
-
+        <div style={{position: 'absolute', top: '50%', left: '50%', textAlign: 'center', transform: 'translate(-50%, -50%)'}}>
+          <h1>Przemieszczaj się w 3City sprawniej</h1>
+          <FacebookLogin
+            appId="1679150892381438"
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={this.responseFacebook}
+            icon="fa-facebook"
+          />
+        </div>
       </div>
     );
     const userLogged = (
@@ -168,18 +169,18 @@ class TravelPlanner extends React.Component {
         <Col md={3}>
           <div className="panel panel-primary">
             <div className="panel-heading">
-              <h3 className="panel-title">Użytkownik: {user.name}<img src={userPicture} alt="user_photo"/></h3>
+              <h3 className="panel-title">Użytkownik: <strong>{user.name}</strong><img src={userPicture} alt="user" style={{borderRadius: '40px', marginLeft: '1em'}}/></h3>
 
             </div>
           </div>
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              <h3 className="panel-title">Czas:</h3>
-            </div>
-            <div className="panel-body">
-              <DateTimePicker />
-            </div>
-          </div>
+          {/*<div className="panel panel-primary">*/}
+          {/*<div className="panel-heading">*/}
+          {/*<h3 className="panel-title">Czas:</h3>*/}
+          {/*</div>*/}
+          {/*<div className="panel-body">*/}
+          {/*<DateTimePicker />*/}
+          {/*</div>*/}
+          {/*</div>*/}
           <div className="panel panel-primary">
             <div className="panel-heading">
               <h3 className="panel-title">Podróż:</h3>

@@ -60,9 +60,9 @@ class Map extends React.Component {
         przystankiZTrasy.map(function (item) {
         return {location: new global.google.maps.LatLng(item.stopLat, item.stopLon), stopover: true}
       }));
-      console.log('bez slice', przystankiZTrasy, 'slice', przystankiZTrasy.slice(4, -4).map(function (item) {
-        return {location: new global.google.maps.LatLng(item.stopLat, item.stopLon), stopover: true}
-      }));
+      // console.log('bez slice', przystankiZTrasy, 'slice', przystankiZTrasy.slice(4, -4).map(function (item) {
+      //   return {location: new global.google.maps.LatLng(item.stopLat, item.stopLon), stopover: true}
+      // }));
     }else {
       this.setRoute(new global.google.maps.LatLng(busStopsStart.Lat, busStopsStart.Lon),
         new global.google.maps.LatLng(busStopsEnd.Lat, busStopsEnd.Lon));
@@ -70,8 +70,8 @@ class Map extends React.Component {
   };
 
   render() {
-    const {busStopsStart, busStopsEnd, przystankiZTrasy} = this.props;
-    console.log('MapStart: ', busStopsStart, '; MapEnd: ', busStopsEnd, 'przystankiZTrasy', przystankiZTrasy);
+    // const {busStopsStart, busStopsEnd, przystankiZTrasy} = this.props;
+    // console.log('MapStart: ', busStopsStart, '; MapEnd: ', busStopsEnd, 'przystankiZTrasy', przystankiZTrasy);
 
     return (
       <div>
